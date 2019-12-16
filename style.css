@@ -1,0 +1,61 @@
+*,*::before,*::after{
+    box-sizing:  border-box;
+    font-family: 'Anton', sans-serif;
+    font-weight: normal;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, pink,blue);
+}
+
+
+.calculator-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh; /* vh - 1% от высоты окна браузера */
+    grid-template-columns: repeat(4,200px);/* 4 колонки по 100px */
+    grid-template-rows: minmax(200px, auto) repeat(5, 200px); /* min-значение строки = 120px, 6 строк по 100px */
+}
+
+.calculator-grid > button{
+    cursor: pointer;
+    font-size: 4rem; /* 1rem =  16px*/
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255,255,255,.75);
+}
+
+.calculator-grid > button:hover{
+    background-color: rgba(255,255,255,.9);
+}
+
+.span-two{
+    grid-column: span 2; /* Блок занимает 2 ячейки grid */
+}
+
+.output{
+    grid-column: 1 / -1;
+    background-color:  rgba(0,0,0,.75);
+    display: flex;
+    align-items: flex-end;/* Строки располагаются начиная снизу */
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word; /* Перенос слов, если не хватает места в строке */
+    word-break: break-all; /* Переносить в любом месте */
+}
+
+.output .previous-operand{
+    color: rgba(255,255,255,.75);
+    font-size: 2.5rem;
+}
+
+.output .current-operand{
+    color: white;
+    font-size: 4.5rem;
+}
+
+
